@@ -45,11 +45,13 @@ export default class Setting extends React.Component<
     this.handleRepetitionMaxChange = this.handleRepetitionMaxChange.bind(this);
     this.handleResultColorChange = this.handleResultColorChange.bind(this);
     this.handleFacilityColorChange = this.handleFacilityColorChange.bind(this);
+    this.handleMaxTravelTimeChange = this.handleMaxTravelTimeChange.bind(this);
   }
 
   componentDidMount() {
-    const { repetitionMax } = this.props.config;
+    const { repetitionMax, maxTravelTime } = this.props.config;
     this.handleRepetitionMaxChange(repetitionMax);
+    this.handleMaxTravelTimeChange(maxTravelTime);
   }
 
   componentDidUpdate(prevProps: SettingProps, prevState: SettingState) {}
@@ -141,6 +143,23 @@ export default class Setting extends React.Component<
             />
           </SettingRow>
         </SettingSection>
+        <SettingSection
+          title={this.props.intl.formatMessage({
+            id: "maxTravelTime",
+            defaultMessage: defaultMessages.maxTravelTime,
+          })}
+        >
+          <SettingRow>
+            <NumericInput
+              className="w-100"
+              size="sm"
+              min={1}
+              max={600}
+              value={this.props.config.maxTravelTime}
+              onChange={this.handleRepetitionMaxChange}
+            />
+          </SettingRow>
+        </SettingSection>
       </div>
     );
   }
@@ -168,6 +187,15 @@ export default class Setting extends React.Component<
       config: this.props.config.merge({
         colors: colorsNew,
         repetitionMax: value,
+      }),
+    });
+  }
+
+  private handleMaxTravelTimeChange(value: number): void {
+    this.props.onSettingChange({
+      id: this.props.id,
+      config: this.props.config.merge({
+        maxTravelTime: value,
       }),
     });
   }

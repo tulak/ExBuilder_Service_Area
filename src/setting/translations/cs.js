@@ -4,5 +4,6 @@ define({
   options: "Možnosti",
   resultColor: "Barva výsledku",
   facilityColor: "Barva místa",
-  repetitionMax: "Maximální počet časových pásem"
+  repetitionMax: "Maximální počet časových pásem",
+  maxTravelTime: "Maximální doba cestovani"
 });
