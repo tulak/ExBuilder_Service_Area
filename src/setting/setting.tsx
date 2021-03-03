@@ -156,7 +156,7 @@ export default class Setting extends React.Component<
               min={1}
               max={600}
               value={this.props.config.maxTravelTime}
-              onChange={this.handleRepetitionMaxChange}
+              onChange={this.handleMaxTravelTimeChange}
             />
           </SettingRow>
         </SettingSection>
