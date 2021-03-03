@@ -1,0 +1,14 @@
+{
+  "serviceAreaUrl": "https://gis.brno.cz/ags1/rest/services/PUBLIC/DopravniObsluznost/NAServer/Service%20Area%201",
+  "resultColor": "#31b5ba",
+  "colors": ["#437a75", "#d9d78c", "#bf7860", "#72231f", "#afbfa2"],
+  "facilityColor": "#000000",
+  "intervalMin": 5,
+  "intervalMax": 60,
+  "intervalStep": 5,
+  "interval": 15,
+  "repetitionMin": 1,
+  "repetitionMax": 3,
+  "repetition": 1,
+  "dayOfWeek": 0
+}
