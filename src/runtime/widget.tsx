@@ -1196,7 +1196,7 @@ export default class Widget extends React.Component<WidgetProps, WidgetState> {
     });
 
     if(repetition * value > maxTravelTime) {
-      const newRepetition = Math.ceil((maxTravelTime / value) / intervalStep) * intervalStep;
+      const newRepetition = Math.ceil((maxTravelTime / value));
       this.setState({
         repetition: Number(newRepetition),
       });
@@ -1216,6 +1216,9 @@ export default class Widget extends React.Component<WidgetProps, WidgetState> {
       this.setState({
         interval: Number(newInterval),
       });
+      if(this.slider) {
+        this.slider.viewModel.setValue(0, newInterval);
+      }
     }
   }
 
