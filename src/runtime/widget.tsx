@@ -1188,15 +1188,35 @@ export default class Widget extends React.Component<WidgetProps, WidgetState> {
   }
 
   private handleIntervalChange(value: number): void {
+    const { repetition } = this.state;
+    const { maxTravelTime, intervalStep } = this.props.config;
+
     this.setState({
       interval: value,
     });
+
+    if(repetition * value > maxTravelTime) {
+      const newRepetition = Math.ceil((maxTravelTime / value) / intervalStep) * intervalStep;
+      this.setState({
+        repetition: Number(newRepetition),
+      });
+    }
   }
 
   private handleRepetitionChange(value: number): void {
+    const { interval } = this.state;
+    const { maxTravelTime, intervalStep } = this.props.config;
+
     this.setState({
       repetition: Number(value),
     });
+
+    if(interval * value > maxTravelTime) {
+      const newInterval = Math.ceil((maxTravelTime / value) / intervalStep) * intervalStep;
+      this.setState({
+        interval: Number(newInterval),
+      });
+    }
   }
 
   private handleResultColorsChange(colors: string[]): void {

@@ -13,6 +13,7 @@ export interface Config {
   repetitionMin: number;
   repetitionMax: number;
   dayOfWeek: number;
+  maxTravelTime: number;
 }
 
 export type IMConfig = ImmutableObject<Config>;

@@ -10,5 +10,6 @@
   "repetitionMin": 1,
   "repetitionMax": 3,
   "repetition": 1,
-  "dayOfWeek": 0
+  "dayOfWeek": 0,
+  "maxTravelTime": 180
 }
